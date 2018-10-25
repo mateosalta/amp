@@ -1,0 +1,10 @@
+[Desktop Entry]
+_Name=Amp
+Comment=Crank it up to 11
+Exec=@EXEC@
+Icon=@ICON@
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+
+
