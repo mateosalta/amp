@@ -16,17 +16,26 @@ MainView {
     height: units.gu(75)
 
     Page {
+
         header: PageHeader {
             id: pageHeader
             title: i18n.tr("Amplified Volume")
+
             StyleHints {
                 foregroundColor: UbuntuColors.jet
-                backgroundColor: "white
+                backgroundColor: "white"
                 dividerColor: UbuntuColors.slate
+
             }
         }
 
+Icon{
+    id: icon
+    height: width
+    width: units.gu(10)
 
+    source: Qt.resolvedUrl(security-alert)
+}
 
         Label {
             id: label
@@ -35,6 +44,7 @@ MainView {
                 horizontalCenter: parent.horizontalCenter
                 top: pageHeader.bottom
                 topMargin: units.gu(2)
+
             }
         }
 
@@ -46,6 +56,7 @@ MainView {
                 horizontalCenter: parent.horizontalCenter
                 top: label.bottom
                 topMargin: units.gu(2)
+
             }
             width: parent.width
 
@@ -63,7 +74,7 @@ MainView {
                     horizontalCenter: parent.horizontalCenter
                     top: button.bottom
                     topMargin: units.gu(2)
-                }
+               }
                 width: parent.width
 
                 text: "disable amplified volume"
@@ -87,5 +98,4 @@ MainView {
 
     }
 }
-
 

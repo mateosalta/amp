@@ -6,7 +6,7 @@
 
 void BackendPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("Love"));
+    Q_ASSERT(uri == QLatin1String("Amp"));
 qmlRegisterType<Launcher>(uri, 1, 0, "Launcher");
 }
 

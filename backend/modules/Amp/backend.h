@@ -7,7 +7,7 @@
 /*
  ----8<-----
 
- import Love 1.0
+ import Amp 1.0
 
  Rectangle {
    width: 200
@@ -35,4 +35,3 @@ public:
     void initializeEngine(QQmlEngine *engine, const char *uri);
 };
 #endif // BACKEND_PLUGIN_H
-

@@ -7,5 +7,5 @@ fi
 
 SCRIPTPATH=`dirname $0`
 pushd ${SCRIPTPATH}
-autopilot3 run love
+autopilot3 run Amp
 popd

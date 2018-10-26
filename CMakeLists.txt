@@ -1,4 +1,4 @@
-project(amp C CXX)
+project(Amp C CXX)
 cmake_minimum_required(VERSION 2.8.9)
 
 # Do not remove this line, its required for the correct functionality of the Ubuntu-SDK
@@ -24,19 +24,19 @@ set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
 option(INSTALL_TESTS "Install the tests on make install" on)
 
-set(APP_NAME          amp)
+set(APP_NAME          Amp)
 set(APP_ID            "amp.mateo-salta")
-set(AMP_DIR "share/qml/amp")
+set(AMP_DIR "share/qml/Amp")
 set(MAIN_QML          "Main.qml")
-set(ICON              "graphics/amp.png")
+set(ICON              "graphics/Amp.png")
 
 # Set install paths
 set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_DIR ${DATA_DIR})
-set(DESKTOP_FILE_NAME "amp.desktop")
+set(DESKTOP_FILE_NAME "Amp.desktop")
 
-set(EXEC "qmlscene %U ${amp_DIR}/${MAIN_QML}")
+set(EXEC "qmlscene %U ${AMP_DIR}/${MAIN_QML}")
 
 # This command figures out the target architecture for use in the manifest file
 execute_process(
@@ -50,7 +50,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json
         DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 install(DIRECTORY "app/graphics" DESTINATION ${DATA_DIR})
-install(FILES "amp.apparmor" DESTINATION ${DATA_DIR})
+install(FILES "Amp.apparmor" DESTINATION ${DATA_DIR})
 
 add_subdirectory(app)
 add_subdirectory(backend)
@@ -58,18 +58,18 @@ add_subdirectory(po)
 
 add_custom_target("autopilot" chmod +x ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
                     COMMAND ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
-                    DEPENDS ampbackend ampbackend-qmldir
+                    DEPENDS Ampbackend Ampbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
 add_custom_target("check"
                     COMMAND /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/backend/tests/unit -import ${CMAKE_BINARY_DIR}/backend
                     COMMAND /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/app/tests/unit -import ${CMAKE_BINARY_DIR}/backend
-                    DEPENDS ampbackend ampbackend-qmldir
+                    DEPENDS Ampbackend Ampbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
 add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/app/Main.qml
-                    DEPENDS ampbackend ampbackend-qmldir
+                    DEPENDS Ampbackend Ampbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
 # No op custom target for all not compiled files, so they show up in the QtCreator project tree
-add_custom_target("amp_ClickFiles" ALL SOURCES "amp.apparmor" "manifest.json.in")
+add_custom_target("amp_ClickFiles" ALL SOURCES "Amp.apparmor" "manifest.json.in")

@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=Amp
-Comment=Crank it up to 11
+Comment=My project description
 Exec=@EXEC@
 Icon=@ICON@
 Terminal=false
