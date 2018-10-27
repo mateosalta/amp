@@ -28,15 +28,19 @@ MainView {
 
             }
         }
+/*
+UbuntuShape {
+    width: parent
+    height: icon.height
+    Icon{
+        id: icon
+        height: width
+        width: units.gu(10)
 
-Icon{
-    id: icon
-    height: width
-    width: units.gu(10)
-
-    source: Qt.resolvedUrl(security-alert)
+        name: "security-alert"
+    }
 }
-
+*/
         Label {
             id: label
             objectName: "label"
@@ -58,43 +62,42 @@ Icon{
                 topMargin: units.gu(2)
 
             }
-            width: parent.width
+            width: parent.width - units.gu(4)
+            height: units.gu(5)
 
-            text: "enable amplified volume"
+            text: i18n.tr("enable amplified volume")
 
             onClicked: {
                         qprocess.launch("gsettings set com.ubuntu.sound allow-amplified-volume true")
                 qprocess.launch("gsettings set com.canonical.indicator.sound amplified-volume-decibels 12")
-            }}
-            Button {
-                id: button2
-                objectName: "button"
-                color: UbuntuColors.green
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    top: button.bottom
-                    topMargin: units.gu(2)
-               }
-                width: parent.width
+            }
+        }
+            
+        Button {
+            id: button2
+            objectName: "button"
+            color: UbuntuColors.green
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                top: button.bottom
+                topMargin: units.gu(4)
+           }
+            width: parent.width - units.gu(4)
+            height: units.gu(5)
+            
+            text: i18n.tr("disable amplified volume")
 
-                text: "disable amplified volume"
+            onClicked: {
+                        qprocess.launch("gsettings set com.ubuntu.sound allow-amplified-volume false")
+                qprocess.launch("gsettings set com.canonical.indicator.sound amplified-volume-decibels -5")
+            }
+        }
 
-                onClicked: {
-                            qprocess.launch("gsettings set com.ubuntu.sound allow-amplified-volume false")
-                    qprocess.launch("gsettings set com.canonical.indicator.sound amplified-volume-decibels -5")
-                }}
-            Rectangle {
-           anchors.top: parent.bottom
-                     Launcher {
-                        id: qprocess
-                     }
+        Launcher {
+            id: qprocess
+        }
 
 
-                     Text {
-                       anchors.centerIn: parent
-                       //text: qprocess.launch("which bash")
-                     }
-                   }
 
     }
 }
