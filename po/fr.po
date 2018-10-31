@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-26 00:00+0000\n"
+"POT-Creation-Date: 2018-10-27 00:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,8 +19,16 @@ msgstr ""
 
 #: ../app/Main.qml:22
 msgid "Amplified Volume"
-msgstr "Volume amplifié"
+msgstr "Amplificateur de volume"
 
-#: /home/mateo/Amp/build/po/Amp.desktop.in.h:1
+#: ../app/Main.qml:68
+msgid "enable amplified volume"
+msgstr "Activer l'amplificateur du volume"
+
+#: ../app/Main.qml:88
+msgid "disable amplified volume"
+msgstr "Désactiver l'amplificateur de volume"
+
+#: /home/cibersheep/Ubuntu_Touch_Projects/translations/Amp/amp/build/po/Amp.desktop.in.h:1
 msgid "Amp"
 msgstr "Amplificateur"
